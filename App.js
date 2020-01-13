@@ -1,5 +1,8 @@
 import React from 'react';
+import { View, TouchableOpacity, Text, Button, TextInput, StyleSheet } from 'react-native';
 import Example from './screens/Example';
+import SignInScreen from './screens/SignInScreen';
+import SignUp1 from './screens/SignUp1';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -12,15 +15,15 @@ const AuthStack = createStackNavigator({
     },
   },
   SignIn: {
-    screen: Example,
+    screen: SignInScreen,
     navigationOptions: {
       headerTitle: 'Sign In',
     },
   },
-  CreateAccount: {
-    screen: Example,
+  SignUp: {
+    screen: SignUp1,
     navigationOptions: {
-      headerTitle: 'Create Account',
+      headerTitle: 'Sign Up',
     },
   },
   ForgotPassword: {
@@ -49,33 +52,5 @@ const App = createSwitchNavigator({
   },
 });
 
-export default createAppContainer(App);
 
-// export default function App() {
-//   return(
-//
-//     <View style= {styles.container}>
-//     <Text>Create an Account</Text>
-//     <TextInput placeholder="Email" style={styles.textInput}/>
-//     <TextInput placeholder="Password" style={styles.textInput}/>
-//     <Button title="LOGIN" />
-//   </View>);
-// };
-//
-// const styles = StyleSheet.create({
-//   topPart: {
-//     padding:20,
-//   },
-//   container: {
-//     top: 250,
-//     padding: 50,
-//     justifyContent: 'space-between',
-//     alignItems: 'center'
-//   },
-//   textInput: {
-//     width: '100%',
-//     borderBottomColor: 'green',
-//     borderBottomWidth: 1,
-//     padding:20
-//   },
-// });
+export default createAppContainer(App);

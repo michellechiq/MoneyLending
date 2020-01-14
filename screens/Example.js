@@ -25,14 +25,6 @@ const getAvailableRoutes = navigation => {
   );
 };
 
-const getRandomColor = () => {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
 
 const Example = ({ navigation }) => {
   return (
@@ -41,7 +33,7 @@ const Example = ({ navigation }) => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: getRandomColor(),
+        backgroundColor: '#A9FBD7',
       }}
     >
       {getAvailableRoutes(navigation).map(route => (

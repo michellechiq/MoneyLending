@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Button, TextInput, StyleSheet } from 'react-native';
 import Example from './screens/Example';
-import SignInScreen from './screens/SignInScreen';
-import SignUp1 from './screens/SignUp1';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -14,30 +14,19 @@ const AuthStack = createStackNavigator({
       headerTitle: 'Landing',
     },
   },
-  SignIn: {
-    screen: SignInScreen,
+  Login: {
+    screen: LoginScreen,
     navigationOptions: {
       headerTitle: 'Sign In',
     },
   },
   SignUp: {
-    screen: SignUp1,
+    screen: SignUpScreen,
     navigationOptions: {
       headerTitle: 'Sign Up',
     },
   },
-  ForgotPassword: {
-    screen: Example,
-    navigationOptions: {
-      headerTitle: 'Forgot Password',
-    },
-  },
-  ResetPassword: {
-    screen: Example,
-    navigationOptions: {
-      headerTitle: 'Reset Password',
-    },
-  },
+
 });
 
 const App = createSwitchNavigator({

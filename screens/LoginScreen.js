@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, CheckBox } from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, CheckBox, SearchBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -56,10 +56,17 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 200}}>Lend</Text>
-        <TextInput placeholder="Name of Bank" style={styles.textInput}/>
-        <TextInput placeholder="Account Number" style={styles.textInput}/>
-        <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
+        <Text style = {{fontSize:22, bottom: 255}}>Lend</Text>
+        <Text style = {{fontSize:22, bottom: 200}}>$2000.00</Text>
+        <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
+        <Text style = {{fontSize:22, bottom: 200}}>-$300.00</Text>
+        <TextInput placeholder="Pending Loans" style={styles.text2}/>
+        <TextInput placeholder="  Search Bar" style ={styles.text3}/>
+
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User1 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $400</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User2 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $450</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User3 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $2500</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User4 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $20</Text></View>
         <Button
           title="Switch To Borrower"
           onPress={() => this.props.navigation.navigate('Borrower')}
@@ -156,5 +163,23 @@ const styles = StyleSheet.create({
     borderBottomColor: 'green',
     borderBottomWidth: 1,
     padding:20
+  },
+  text2: {
+    width: '35%',
+    borderTopColor: 'green',
+    borderTopWidth: 1,
+    bottom:200
+  },
+  text3: {
+    width: '65%',
+    borderTopColor: 'green',
+    borderBottomColor: 'green',
+    borderLeftColor: 'green',
+    borderRightColor: 'green',
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    bottom:180
   },
 });

@@ -30,7 +30,7 @@ const AuthStack = createStackNavigator({
 });
 
 const App = createSwitchNavigator({
-  Loading: {
+  ForgetPassword: {
     screen: Example,
   },
   Auth: {

@@ -73,15 +73,14 @@ class Borrowing extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 50}}>Borrow</Text>
+        <Text style = {{fontSize:22, bottom: 200}}>Borrow</Text>
         <TextInput placeholder="Name of Bank" style={styles.textInput}/>
         <TextInput placeholder="Account Number" style={styles.textInput}/>
         <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
-        <View style = {{padding: 80}}><Text>Type of Account</Text>
         <Button
           title="Switch To Lender"
           onPress={() => this.props.navigation.navigate('Lender')}
-        /></View>
+        />
       </View>
 
     );

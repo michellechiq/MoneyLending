@@ -56,7 +56,7 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 200}}>Lend</Text>
+        <Text style = {{fontSize:22, bottom: 175}}>Lend</Text>
         <Text style = {{fontSize:22, bottom: 150}}>$2000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
         <Text style = {{fontSize:22, bottom: 150}}>-$300.00</Text>

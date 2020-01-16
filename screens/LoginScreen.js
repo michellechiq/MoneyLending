@@ -67,6 +67,9 @@ class Lending extends React.Component {
         <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User2 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $450</Text></View>
         <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User3 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $2500</Text></View>
         <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User4 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $20</Text></View>
+
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $400</Text></View>
+
         <Button
           title="Switch To Borrower"
           onPress={() => this.props.navigation.navigate('Borrower')}
@@ -88,6 +91,17 @@ class Borrowing extends React.Component {
           title="Switch To Lender"
           onPress={() => this.props.navigation.navigate('Lender')}
         />
+      </View>
+
+    );
+  }
+}
+class ProfB extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+        <Text style = {{fontSize:22, bottom: 200}}>Profile View: </Text>
+        <Text style = {{fontSize:15, bottom: 200, color:'green'}}>Borrower</Text>
       </View>
 
     );
@@ -136,6 +150,15 @@ const RootStack = createStackNavigator(
     },
     Borrower: {
       screen: Borrowing,
+      navigationOptions: {
+        headerTitle:'',
+        headerStyle: {
+          backgroundColor:'#A9FBD7'
+        },
+      },
+    },
+    ProfileB: {
+      screen: ProfB,
       navigationOptions: {
         headerTitle:'',
         headerStyle: {

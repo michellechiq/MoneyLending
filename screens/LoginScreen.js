@@ -56,10 +56,10 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 255}}>Lend</Text>
-        <Text style = {{fontSize:22, bottom: 200}}>$2000.00</Text>
+        <Text style = {{fontSize:22, bottom: 200}}>Lend</Text>
+        <Text style = {{fontSize:22, bottom: 150}}>$2000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
-        <Text style = {{fontSize:22, bottom: 200}}>-$300.00</Text>
+        <Text style = {{fontSize:22, bottom: 150}}>-$300.00</Text>
         <TextInput placeholder="Pending Loans" style={styles.text2}/>
         <TextInput placeholder="  Search Bar" style ={styles.text3}/>
 
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     width: '35%',
     borderTopColor: 'green',
     borderTopWidth: 1,
-    bottom:200
+    bottom:150
   },
   text3: {
     width: '65%',
@@ -180,6 +180,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderLeftWidth: 1,
     borderRightWidth: 1,
-    bottom:180
+    bottom:130
   },
 });

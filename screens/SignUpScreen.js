@@ -21,7 +21,7 @@ class SignUp1 extends React.Component {
 class SignUp2 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
       <Text>Create an Account</Text>
       <TextInput placeholder="Username" style={styles.textInput}/>
       <TextInput placeholder="Password" style={styles.textInput}/>
@@ -39,7 +39,7 @@ class SignUp2 extends React.Component {
 class SignUp3 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
         <Text>Set Up Your Account</Text>
         <TextInput placeholder="First Name" style={styles.textInput}/>
         <TextInput placeholder="Last Name" style={styles.textInput}/>

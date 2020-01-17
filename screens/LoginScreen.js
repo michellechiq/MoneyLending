@@ -6,7 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 class Login1 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom: 80, backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
         <Text style = {{fontWeight: 'bold', bottom: '10%', fontSize: 20}}>Login</Text>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <TextInput placeholder="Password" style={styles.textInput}/>
@@ -23,7 +23,7 @@ class Login1 extends React.Component {
 class Login2 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
       <Text style = {{fontWeight: 'bold', bottom:55, fontSize:32 }}>Verified</Text>
         <Button
           title="Next"
@@ -37,7 +37,7 @@ class Login2 extends React.Component {
 class Login3 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
         <Text style = {{fontSize:22, bottom: 50}}>Banking Information</Text>
         <TextInput placeholder="Name of Bank" style={styles.textInput}/>
         <TextInput placeholder="Account Number" style={styles.textInput}/>

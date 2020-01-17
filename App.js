@@ -12,13 +12,13 @@ const AuthStack = createStackNavigator({
   Landing: {
     screen: Example,
     navigationOptions: {
-      headerTitle: 'Landing',
+      headerTitle: 'Homepage',
     },
   },
   Login: {
     screen: LoginScreen,
     navigationOptions: {
-      headerTitle: 'Sign In',
+      headerTitle: 'Login',
     },
   },
   SignUp: {

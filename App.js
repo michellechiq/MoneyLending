@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, CheckBox } from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -8,13 +8,13 @@ class Homepage extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
       <Text style = {{fontWeight: 'bold',fontSize:32 }}>HOMEPAGE TEST</Text>
-      <Text style = {{fontWeight: 'bold', fontSize:20}}>Insert Logo and App Name</Text>
+      <Text style = {{fontSize:15}}>Insert Logo and App Name</Text>
         <Button
           title="Login"
           onPress={() => this.props.navigation.navigate('Log1')}
         />
         <Button
-          title="Sign In"
+          title="Sign Up"
           onPress={() => this.props.navigation.navigate('Sign1')}
         />
         <Button
@@ -29,7 +29,7 @@ class Homepage extends React.Component {
 class Login1 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom:10, backgroundColor: '#A9FBD7' }}>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <TextInput placeholder="Password" style={styles.textInput}/>
         <Button
@@ -63,7 +63,9 @@ class Login3 extends React.Component {
         <TextInput placeholder="Name of Bank" style={styles.textInput}/>
         <TextInput placeholder="Account Number" style={styles.textInput}/>
         <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
-        <View style = {{padding: 80}}><Text>Type of Account</Text>
+        <View style = {{padding: 30, fontSize: 20}}><Text style = {{top:30}}>Type of Account</Text>
+        <Text style = {styles.textRight}>Checking</Text>
+        <Text style = {styles.textLeft}>Saving</Text>
         <Button
           title="Submit"
           onPress={() => this.props.navigation.navigate('Lender')}
@@ -350,7 +352,29 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     bottom:130
   },
+  textRight: {
+    width: '15%',
+    fontSize: 15,
+    right: 100,
+    top:45,
+    padding: 10,
+    margin: 20,
+    textAlign: 'left'
+  },
+  textLeft: {
+    width: '15%',
+    fontSize: 15,
+    left: 100,
+    bottom:60,
+    margin: 20,
+    textAlign: 'right'
+  }
 });
+
+
+
+
+
 
 //
 //

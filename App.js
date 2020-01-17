@@ -6,8 +6,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 class Homepage extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
-      <Text style = {{fontWeight: 'bold',fontSize:32 }}>HOMEPAGE TEST</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
+      <Text style = {{fontWeight: 'bold',fontSize:32 }}>LEND</Text>
 
       <Image style = {{width: 400, height: 400, padding: 50}} source= {require('./img/lendlogo.png')}/>
         <Button
@@ -30,7 +30,7 @@ class Homepage extends React.Component {
 class Login1 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom:10, backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom:10, backgroundColor: '#E8FEEA' }}>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <TextInput placeholder="Password" style={styles.textInput}/>
         <Button
@@ -45,8 +45,9 @@ class Login1 extends React.Component {
 class Login2 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
-      <Text style = {{fontWeight: 'bold', bottom:55, fontSize:32 }}>Verified</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
+      <Text style = {{fontWeight: 'bold', bottom:55, fontSize:32 }}><Image style = {{width: 38, height: 38}} source= {require('./img/checkMark.png')}/> Verified</Text>
+
         <Button
           title="Next"
           onPress={() => this.props.navigation.navigate('Log3')}
@@ -59,7 +60,7 @@ class Login2 extends React.Component {
 class Login3 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 50}}>Banking Information</Text>
         <TextInput placeholder="Name of Bank" style={styles.textInput}/>
         <TextInput placeholder="Account Number" style={styles.textInput}/>
@@ -79,7 +80,7 @@ class Login3 extends React.Component {
 class Lending extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 155}}>Lender's Page</Text>
         <Text style = {{fontSize:22, bottom: 150}}>$2000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
@@ -107,7 +108,7 @@ class Lending extends React.Component {
 class Borrowing extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 200}}>Borrow</Text>
         <TextInput placeholder="Name of Bank" style={styles.textInput}/>
         <TextInput placeholder="Account Number" style={styles.textInput}/>
@@ -124,7 +125,7 @@ class Borrowing extends React.Component {
 class ProfB extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 200}}>Profile View: </Text>
         <Text style = {{fontSize:15, bottom: 200, color:'green'}}>Borrower</Text>
         <Text style = {{fontSize:30, bottom: 170, padding: 50}}>IMAGE GOES HERE</Text>
@@ -140,7 +141,7 @@ class ProfB extends React.Component {
 class SignUp1 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontWeight: 'bold', top: -300, fontSize: 20}}>Create an Account</Text>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <Button
@@ -155,7 +156,7 @@ class SignUp1 extends React.Component {
 class SignUp2 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
       <Text>Create an Account</Text>
       <TextInput placeholder="Username" style={styles.textInput}/>
       <TextInput placeholder="Password" style={styles.textInput}/>
@@ -173,7 +174,7 @@ class SignUp2 extends React.Component {
 class SignUp3 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text>Set Up Your Account</Text>
         <TextInput placeholder="First Name" style={styles.textInput}/>
         <TextInput placeholder="Last Name" style={styles.textInput}/>
@@ -192,7 +193,7 @@ class SignUp3 extends React.Component {
 class SignUp4 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontWeight: 'bold', top: -250, fontSize: 30}}>Verification Status</Text>
       </View>
 
@@ -207,7 +208,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -217,7 +218,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -227,7 +228,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -238,7 +239,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -248,7 +249,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -258,7 +259,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -268,7 +269,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -278,7 +279,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -288,7 +289,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -299,7 +300,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },
@@ -310,7 +311,7 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7',
+          backgroundColor:'#E8FEEA',
           shadowColor: 'transparent'
         },
       },

@@ -7,7 +7,8 @@ class Homepage extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
-      <Text style = {{fontWeight: 'bold', bottom:55, fontSize:32 }}>HOMEPAGE TEST</Text>
+      <Text style = {{fontWeight: 'bold',fontSize:32 }}>HOMEPAGE TEST</Text>
+      <Text style = {{fontWeight: 'bold', fontSize:20}}>Insert Logo and App Name</Text>
         <Button
           title="Login"
           onPress={() => this.props.navigation.navigate('Log1')}
@@ -15,6 +16,10 @@ class Homepage extends React.Component {
         <Button
           title="Sign In"
           onPress={() => this.props.navigation.navigate('Sign1')}
+        />
+        <Button
+          title="Lender"
+          onPress={() => this.props.navigation.navigate('Lender')}
         />
 
       </View>
@@ -25,10 +30,8 @@ class Login1 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontWeight: 'bold', bottom: '10%', fontSize: 20}}>Login</Text>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <TextInput placeholder="Password" style={styles.textInput}/>
-        <TextInput placeholder="Re-Enter Password" style={styles.textInput}/>
         <Button
           title="Login"
           onPress={() => this.props.navigation.navigate('Log2')}
@@ -74,19 +77,20 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 175}}>Lend</Text>
+        <Text style = {{fontSize:22, bottom: 155}}>Lender's Page</Text>
         <Text style = {{fontSize:22, bottom: 150}}>$2000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
         <Text style = {{fontSize:22, bottom: 150}}>-$300.00</Text>
         <TextInput placeholder="Pending Loans" style={styles.text2}/>
         <TextInput placeholder="  Search Bar" style ={styles.text3}/>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User1 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $400</Text></View>
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User2 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $450</Text></View>
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User3 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $2500</Text></View>
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Text style= {{fontSize:20, justifyContent: 'space-between'}}>User4 </Text><Text style= {{fontSize:20, justifyContent: 'space-between'}}> $20</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 5}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $400</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
+
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
+
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="jdoe24" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
 
         <Button
           title="Switch To Borrower"
@@ -120,6 +124,11 @@ class ProfB extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
         <Text style = {{fontSize:22, bottom: 200}}>Profile View: </Text>
         <Text style = {{fontSize:15, bottom: 200, color:'green'}}>Borrower</Text>
+        <Text style = {{fontSize:30, bottom: 170, padding: 50}}>IMAGE GOES HERE</Text>
+        <Text style = {{fontSize:22, bottom: 150}}>Jane Doe</Text>
+        <Text style = {{fontSize:15, bottom: 150}}>jdoe24</Text>
+
+
       </View>
 
     );
@@ -318,10 +327,10 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   textInput: {
-    width: '100%',
+    width: '80%',
     borderBottomColor: 'green',
     borderBottomWidth: 1,
-    padding:20
+    padding:15
   },
   text2: {
     width: '35%',

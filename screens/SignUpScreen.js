@@ -76,7 +76,6 @@ const RootStack = createStackNavigator(
           shadowColor: 'transparent'
         },
       },
-
     },
     Sign2: {
       screen: SignUp2,

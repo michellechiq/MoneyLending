@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet} from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -8,7 +8,8 @@ class Homepage extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A9FBD7' }}>
       <Text style = {{fontWeight: 'bold',fontSize:32 }}>HOMEPAGE TEST</Text>
-      <Text style = {{fontSize:15}}>Insert Logo and App Name</Text>
+
+      <Image style = {{width: 400, height: 400, padding: 50}} source= {require('./img/lendlogo.png')}/>
         <Button
           title="Login"
           onPress={() => this.props.navigation.navigate('Log1')}
@@ -176,7 +177,8 @@ class SignUp3 extends React.Component {
         <Text>Set Up Your Account</Text>
         <TextInput placeholder="First Name" style={styles.textInput}/>
         <TextInput placeholder="Last Name" style={styles.textInput}/>
-        <View style = {{padding: 80}}><Text>Upload Valid Photo ID:</Text>
+        <View style = {{padding: 90}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
+        <Image style = {{width: 220, height: 180, padding: 50}} source= {require('./img/placeholder.jpg')}/>
         <Button
           title="Submit"
           onPress={() => this.props.navigation.navigate('Sign4')}

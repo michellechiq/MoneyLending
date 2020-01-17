@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, CheckBox, SearchBar } from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, CheckBox } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -7,7 +7,7 @@ class Login1 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom: 80, backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontWeight: 'bold', top: -150, fontSize: 20}}>Login</Text>
+        <Text style = {{fontWeight: 'bold', bottom: '10%', fontSize: 20}}>Login</Text>
         <TextInput placeholder="Email Address" style={styles.textInput}/>
         <TextInput placeholder="Password" style={styles.textInput}/>
         <TextInput placeholder="Re-Enter Password" style={styles.textInput}/>
@@ -107,7 +107,6 @@ class ProfB extends React.Component {
     );
   }
 }
-
 const RootStack = createStackNavigator(
   {
     Log1: {
@@ -115,7 +114,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
 
@@ -125,7 +125,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
 
@@ -135,7 +136,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
     },
@@ -144,7 +146,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
     },
@@ -153,7 +156,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
     },
@@ -162,7 +166,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
     },

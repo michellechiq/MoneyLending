@@ -67,12 +67,13 @@ class SignUp4 extends React.Component {
 
 const RootStack = createStackNavigator(
   {
-    Create: {
+    Sign1: {
       screen: SignUp1,
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
 
@@ -82,7 +83,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
 
@@ -92,7 +94,8 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
 
@@ -102,13 +105,14 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         headerTitle:'',
         headerStyle: {
-          backgroundColor:'#A9FBD7'
+          backgroundColor:'#A9FBD7',
+          shadowColor: 'transparent'
         },
       },
     },
   },
   {
-    initialRouteName: 'Create',
+    initialRouteName: 'Sign1',
   }
 );
 

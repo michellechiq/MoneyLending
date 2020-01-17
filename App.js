@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, TouchableOpacity, Text, Button, TextInput, StyleSheet } from 'react-native';
 import Example from './screens/Example';
@@ -30,15 +31,10 @@ const AuthStack = createStackNavigator({
 });
 
 const App = createSwitchNavigator({
-  ForgetPassword: {
-    screen: Example,
-  },
-  Auth: {
+  Start: {
     screen: AuthStack,
   },
-  App: {
-    screen: Example,
-  },
+
 });
 
 

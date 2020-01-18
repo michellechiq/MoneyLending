@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, Image, FlatList, AppRegistry, Platform} from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -22,22 +22,52 @@ class Homepage extends React.Component {
           title="Lender"
           onPress={() => this.props.navigation.navigate('Lender')}
         />
+        <Button
+          title="Borrower"
+          onPress={() => this.props.navigation.navigate('Borrower')}
+        />
 
       </View>
     );
   }
 }
 class Login1 extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { hidePassword: true }
+  }
+
+  setPasswordVisibility = () => {
+    this.setState({ hidePassword: !this.state.hidePassword });
+  }
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom:10, backgroundColor: '#E8FEEA' }}>
-        <TextInput placeholder="Email Address" style={styles.textInput}/>
-        <TextInput placeholder="Password" style={styles.textInput}/>
+      <View style={styles.container}>
+      <TextInput placeholder=" Email Address" style={styles.textBox}/>
+        <View style={styles.textBoxContainer}>
+          <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
+          <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
+            <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
+          </TouchableOpacity>
+        </View>
         <Button
-          title="Login"
-          onPress={() => this.props.navigation.navigate('Log2')}
-        />
+            title="Login"
+            onPress={() => this.props.navigation.navigate('Log2')}
+          />
       </View>
+
+      // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', bottom:10, backgroundColor: '#E8FEEA' }}>
+      //   <TextInput placeholder="Email Address" style={styles.textInput}/>
+      //   <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
+      //   <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
+      //     <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
+      //   </TouchableOpacity>
+      //   <Button
+      //     title="Login"
+      //     onPress={() => this.props.navigation.navigate('Log2')}
+      //   />
+      // </View>
     );
   }
 }
@@ -62,9 +92,9 @@ class Login3 extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 50}}>Banking Information</Text>
-        <TextInput placeholder="Name of Bank" style={styles.textInput}/>
-        <TextInput placeholder="Account Number" style={styles.textInput}/>
-        <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
+        <TextInput placeholder="Name of Bank" style={styles.textBox}/>
+        <TextInput placeholder="Account Number" style={styles.textBox}/>
+        <TextInput placeholder="9 Digit Routing Number" style={styles.textBox}/>
         <View style = {{padding: 30, fontSize: 20}}><Text style = {{top:30}}>Type of Account</Text>
         <Text style = {styles.textRight}>Checking</Text>
         <Text style = {styles.textLeft}>Saving</Text>
@@ -106,56 +136,20 @@ class Lending extends React.Component {
   }
 }
 class Borrowing extends React.Component {
-  constructor(props)
- {
-   super(props);
-
-   this.state = { GridViewItems: [
-     {key: 'One'},
-     {key: 'Two'},
-     {key: 'Three'},
-     {key: 'Four'},
-     {key: 'Five'},
-     {key: 'Six'},
-     {key: 'Seven'},
-     {key: 'Eight'},
-     {key: 'Nine'},
-     {key: 'Zero'}
-   ]}
- }
-GetGridViewItem (item) {
-
-Alert.alert(item);
-
-}
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#A9FBD7' }}>
-        <Text style = {{fontSize:22, bottom: 200}}>Borrow</Text>
-        <TextInput placeholder="200" style={styles.textInput2}/>
-        <TextInput placeholder="Account Number" style={styles.textInput2}/>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
+        <Text style = {{fontSize:22, bottom: 200}}>Borrower's Page</Text>
+        <TextInput placeholder="Name of Bank" style={styles.textInput}/>
+        <TextInput placeholder="Account Number" style={styles.textInput}/>
+        <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
         <Button
-        title="Borrow as anonymous"
-        color=" #cccac9"
-        onPress={this.handlepress}
+          title="Switch To Lender"
+          onPress={() => this.props.navigation.navigate('Lender')}
         />
-        <Text style= {{fontSize:20, bottom: 120}}> Interest Rate: </Text>
-        <TextInput placeholder="10%" style={styles.textInput3}/>
-        <TextInput placeholder="1" style={styles.textInput4}/>
-        <TextInput placeholder="2" style={styles.textInput5}/>
-        <TextInput placeholder="3" style={styles.textInput6}/>
-        <TextInput placeholder="4" style={styles.textInput7}/>
-        <TextInput placeholder="5" style={styles.textInput8}/>
-        <TextInput placeholder="6" style={styles.textInput9}/>
-        <TextInput placeholder="7" style={styles.textInput10}/>
-        <TextInput placeholder="9" style={styles.textInput11}/>
-        <TextInput placeholder="0" style={styles.textInput12}/>
-
-    </View>
+      </View>
 
     );
-  }
-  handlepress = () => {
   }
 }
 class ProfB extends React.Component {
@@ -179,7 +173,7 @@ class SignUp1 extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontWeight: 'bold', top: -300, fontSize: 20}}>Create an Account</Text>
-        <TextInput placeholder="Email Address" style={styles.textInput}/>
+        <TextInput placeholder="Email Address" style={styles.textBox}/>
         <Button
           title="Next"
           onPress={() => this.props.navigation.navigate('Sign2')}
@@ -190,13 +184,26 @@ class SignUp1 extends React.Component {
 }
 
 class SignUp2 extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { hidePassword: true }
+  }
+
+  setPasswordVisibility = () => {
+    this.setState({ hidePassword: !this.state.hidePassword });
+  }
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
       <Text>Create an Account</Text>
-      <TextInput placeholder="Username" style={styles.textInput}/>
-      <TextInput placeholder="Password" style={styles.textInput}/>
-      <TextInput placeholder="Re-Enter Password" style={styles.textInput}/>
+      <TextInput placeholder=" Username" style={styles.textBox}/>
+      <View style={styles.textBoxContainer}>
+        <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
+        <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
+          <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
+        </TouchableOpacity>
+      </View>
 
         <Button
           title="Next"
@@ -212,8 +219,8 @@ class SignUp3 extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text>Set Up Your Account</Text>
-        <TextInput placeholder="First Name" style={styles.textInput}/>
-        <TextInput placeholder="Last Name" style={styles.textInput}/>
+        <TextInput placeholder="First Name" style={styles.textBox}/>
+        <TextInput placeholder="Last Name" style={styles.textBox}/>
         <View style = {{padding: 90}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
         <Image style = {{width: 220, height: 180, padding: 50}} source= {require('./img/placeholder.jpg')}/>
         <Button
@@ -368,7 +375,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   textInput: {
-    width: '80%',
+    width: '100%',
     borderBottomColor: 'green',
     borderBottomWidth: 1,
     padding:15
@@ -408,89 +415,49 @@ const styles = StyleSheet.create({
     margin: 20,
     textAlign: 'right'
   },
-  textInput2: {
-    width: '50%',
-    borderColor: '#54e2a5',
-    borderWidth: 5,
-    backgroundColor:'white',
-    fontSize: 25,
-    bottom:120,
-    padding:10,
-    margin: 15,
-    textAlign:'left'
+  // Password StyleSheet
+  container: {
+    backgroundColor:'#E8FEEA',
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
 
-  },
-  textInput3: {
-    width: '25%',
-    borderColor: '#54e2a5',
-    borderWidth: 5,
-    fontSize: 10,
-    bottom:120,
-    padding:10,
-    margin: 15,
-    textAlign:'left'
-
-  },
-  textInput4:{
-    width: '15%',
-    borderColor: '#54e2a5',
-    borderWidth: 5,
-    fontSize: 10,
-    bottom:100,
-    right:75,
-    padding:10,
-    margin: 15,
-    borderRadius: 20,
-    textAlign:'left'
-  },
-  textInput5:{
-    width: '15%',
-    borderColor: '#54e2a5',
-    borderWidth: 5,
-    fontSize: 10,
-    bottom:172,
-    right:10,
-    padding:10,
-    margin: 15,
-    borderRadius: 20,
-    textAlign:'left'
-  },
-  textInput6:{
-    width: '15%',
-    borderColor: '#54e2a5',
-    borderWidth: 5,
-    fontSize: 10,
-    bottom:245,
-    left:60,
-    padding:10,
-    borderRadius: 20,
-    margin: 15,
-    textAlign:'left'
-  },
-  textInput7:{
-    width: '15%',
-    borderColor: '#54e2a5',
-    borderRadius: 20,
-    borderWidth: 5,
-    fontSize: 10,
-    bottom:265,
-    left:60,
-    padding:10,
-    margin: 15,
-    textAlign:'left'
-  },
-  textInput8:{
-    width: '15%',
-    borderColor: '#54e2a5',
-    borderRadius: 20,
-    borderWidth: 5,
-    fontSize: 10,
-    top:150,
-    left:50,
-    padding:10,
-    margin: 15,
-    textAlign:'left'
-  },
+    },
+    headerText: {
+      fontSize: 25,
+      textAlign: "center",
+      margin: 10,
+      color: 'black',
+      fontWeight: "bold"
+    },
+    textBoxContainer: {
+      position: 'relative',
+      alignSelf: 'stretch',
+      justifyContent: 'center'
+    },
+    textBox: {
+      fontSize: 16,
+      alignSelf: 'stretch',
+      height: 45,
+      paddingRight: 45,
+      paddingLeft: 8,
+      borderWidth: 1,
+      paddingVertical: 0,
+      borderColor: 'green',
+      borderRadius: 5,
+    },
+    touachableButton: {
+      position: 'absolute',
+      right: 3,
+      height: 40,
+      width: 35,
+      padding: 2
+    },
+    buttonImage: {
+      resizeMode: 'contain',
+      height: '100%',
+      width: '100%',
+    },
 });
 
 

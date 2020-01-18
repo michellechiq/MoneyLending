@@ -44,6 +44,7 @@ class Login1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <Text style = {{fontSize: 20, bottom: 110}}> LOGIN </Text>
       <TextInput placeholder=" Email Address" style={styles.textBox}/>
         <View style={styles.textBoxContainer}>
           <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
@@ -100,19 +101,19 @@ class Lending extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontSize:22, bottom: 155}}>Lender's Page</Text>
-        <Text style = {{fontSize:22, bottom: 150}}>$2000.00</Text>
+        <Text style = {{fontSize:22, bottom: 150}}>$6000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
         <Text style = {{fontSize:22, bottom: 150}}>-$300.00</Text>
         <TextInput placeholder="Pending Loans" style={styles.text2}/>
         <TextInput placeholder="  Search Bar" style ={styles.text3}/>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
 
         <Button
           title="Switch To Borrower"
@@ -148,10 +149,10 @@ class ProfB extends React.Component {
         <Text style = {{fontSize:15, bottom: 130, color:'green'}}>Borrower</Text>
         <Text style = {{fontSize:15, bottom: 120, color:'green'}}><Image style = {{width: 180, height: 140}} source= {require('./img/profile.jpg')}/></Text>
         <Text style = {{fontSize:22, bottom: 120}}>Nadine Rodriguez</Text>
-        <Text style = {{fontSize:15, bottom: 120}}>nadine16</Text>
+        <Text style = {{fontSize:15, bottom: 120}}>Nadine16</Text>
         <Image style = {{width: 100, height: 100, bottom: 120}} source= {require('./img/ratings.png')}/>
-        <TextInput placeholder="  I need to buy a new laptop..." style={styles.textBox2}/>
-        <TextInput placeholder="  $500" style={styles.textBox3}/>
+        <Text style={styles.textBox2}> I need to buy a new laptop...</Text>
+        <TextInput placeholder="$500.00" style={styles.textBox3}/>
         <Button
           title="LEND"
           onPress={() => this.props.navigation.navigate('')}
@@ -167,7 +168,7 @@ class SignUp1 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontWeight: 'bold', top: -300, fontSize: 20}}>Create an Account</Text>
+        <Text style = {{fontWeight: 'bold', bottom: 140, fontSize: 20}}>Create an Account</Text>
         <TextInput placeholder="Email Address" style={styles.textBox}/>
         <Button
           title="Next"
@@ -191,7 +192,7 @@ class SignUp2 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-      <Text>Create an Account</Text>
+      <Text style = {{fontWeight: 'bold', bottom: 140, fontSize: 20}}>Create a Username and Password</Text>
       <TextInput placeholder=" Username" style={styles.textBox}/>
       <View style={styles.textBoxContainer}>
         <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
@@ -213,10 +214,10 @@ class SignUp3 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text>Set Up Your Account</Text>
+        <Text style = {{fontWeight: 'bold', bottom: 25, fontSize: 20}}>Set Up Your Account</Text>
         <TextInput placeholder="First Name" style={styles.textBox}/>
         <TextInput placeholder="Last Name" style={styles.textBox}/>
-        <View style = {{padding: 90}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
+        <View style = {{padding: 30}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
         <Image style = {{width: 220, height: 180, padding: 50}} source= {require('./img/placeholder.jpg')}/>
         <Button
           title="Submit"
@@ -232,7 +233,8 @@ class SignUp4 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontWeight: 'bold', top: -250, fontSize: 30}}>Verification Status</Text>
+        <Text style = {{fontWeight: 'bold', bottom: 180, fontSize: 30}}>Verification Status</Text>
+        <Text style = {{fontWeight: 'bold', fontSize: 20}}>STATUS BAR GOES HERE</Text>
       </View>
 
     );
@@ -376,7 +378,7 @@ const styles = StyleSheet.create({
     padding:15
   },
   text2: {
-    width: '35%',
+    width: '40%',
     borderTopColor: 'green',
     borderTopWidth: 1,
     bottom:150

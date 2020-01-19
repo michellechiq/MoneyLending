@@ -1,33 +1,71 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker, TouchableWithoutFeedback, Keyboard, Platform, Alert, YellowBox} from 'react-native';
+import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MainService from './screens/mainservice';
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props);
+    YellowBox.ignoreWarnings([
+      'Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'
+    ]);
+  }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-      <Text style = {{fontWeight: 'bold',fontSize:32 }}>LEND</Text>
+      <MenuProvider style={{ flexDirection: "column" }}>
+        <Menu onSelect={value => alert(`You Clicked : ${value}`)}>
 
-      <Image style = {{width: 400, height: 400, padding: 50}} source= {require('./img/lendlogo.png')}/>
-        <Button
-          title="Login"
-          onPress={() => this.props.navigation.navigate('Log1')}
-        />
-        <Button
-          title="Sign Up"
-          onPress={() => this.props.navigation.navigate('Sign1')}
-        />
-        <Button
-          title="Lender"
-          onPress={() => this.props.navigation.navigate('Lender')}
-        />
-        <Button
-          title="Borrower"
-          onPress={() => this.props.navigation.navigate('Borrower')}
-        />
+        <MenuTrigger  >
+          <Text style={styles.headerText2}><Image style = {{width: 20, height: 20, top: 150}} source= {require('./img/menu.png')}/> Navigation Bar</Text>
+        </MenuTrigger  >
 
+        <MenuOptions>
+          <MenuOption value={"Edit Profile"}>
+          <Text style={styles.menuContent}>Edit Profile</Text>
+          </MenuOption>
+          <MenuOption value={"Notifications"}>
+          <Text style={styles.menuContent}>Notifications</Text>
+          </MenuOption>
+          <MenuOption value={"Account Sum"}>
+          <Text style={styles.menuContent}>Account Sum</Text>
+          </MenuOption>
+          <MenuOption value={"Edit Bank Info"}>
+          <Text style={styles.menuContent}>Edit Bank Info</Text>
+          </MenuOption>
+          <MenuOption value={"Change Password"}>
+          <Text style={styles.menuContent}>Change Password</Text>
+          </MenuOption>
+          <MenuOption value={"Logout"}>
+          <Text style={styles.menuContent}>Logout</Text>
+          </MenuOption>
+        </MenuOptions>
+
+        </Menu>
+      </MenuProvider>
+
+      <View style ={{bottom: 180}}>
+      <Image style = {{width: 400, height: 400}} source= {require('./img/lendlogo.png')}/>
+      <Button
+      title="Login"
+      onPress={() => this.props.navigation.navigate('Log1')}
+      />
+      <Button
+      title="Sign Up"
+      onPress={() => this.props.navigation.navigate('Sign1')}
+      />
+      <Button
+      title="Lender"
+      onPress={() => this.props.navigation.navigate('Lender')}
+      />
+      <Button
+      title="Borrower"
+      onPress={() => this.props.navigation.navigate('Borrower')}
+      />
+      </View>
       </View>
     );
   }
@@ -47,16 +85,16 @@ class Login1 extends React.Component {
       <View style={styles.container}>
       <Text style = {{fontSize: 20, bottom: 110}}> LOGIN </Text>
       <TextInput placeholder=" Email Address" style={styles.textBox}/>
-        <View style={styles.textBoxContainer}>
-          <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
-          <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
-            <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
-          </TouchableOpacity>
-        </View>
-        <Button
-            title="Login"
-            onPress={() => this.props.navigation.navigate('Log2')}
-          />
+      <View style={styles.textBoxContainer}>
+      <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
+      <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
+      <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
+      </TouchableOpacity>
+      </View>
+      <Button
+      title="Login"
+      onPress={() => this.props.navigation.navigate('Log2')}
+      />
       </View>
     );
   }
@@ -68,10 +106,10 @@ class Login2 extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
       <Text style = {{fontWeight: 'bold', bottom:55, fontSize:32 }}><Image style = {{width: 38, height: 38}} source= {require('./img/checkMark.png')}/> Verified</Text>
 
-        <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Log3')}
-        />
+      <Button
+      title="Next"
+      onPress={() => this.props.navigation.navigate('Log3')}
+      />
 
       </View>
     );
@@ -81,17 +119,17 @@ class Login3 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontSize:22, bottom: 50}}>Banking Information</Text>
-        <TextInput placeholder="Name of Bank" style={styles.textBox}/>
-        <TextInput placeholder="Account Number" style={styles.textBox}/>
-        <TextInput placeholder="9 Digit Routing Number" style={styles.textBox}/>
-        <TextInput placeholder="Type of Account: Checkings/Savings" style={styles.textBox}/>
-        <View style = {{padding:20}}>
-          <Button
-            title="Submit"
-            onPress={() => this.props.navigation.navigate('Lender')}
-          />
-        </View>
+      <Text style = {{fontSize:22, bottom: 50}}>Banking Information</Text>
+      <TextInput placeholder="Name of Bank" style={styles.textBox}/>
+      <TextInput placeholder="Account Number" style={styles.textBox}/>
+      <TextInput placeholder="9 Digit Routing Number" style={styles.textBox}/>
+      <TextInput placeholder="Type of Account: Checkings/Savings" style={styles.textBox}/>
+      <View style = {{padding:20}}>
+      <Button
+      title="Submit"
+      onPress={() => this.props.navigation.navigate('Lender')}
+      />
+      </View>
       </View>
 
     );
@@ -101,25 +139,25 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontSize:22, bottom: 110}}>Lender's Page</Text>
-        <Text style = {{fontSize:22, bottom: 100}}>$6000.00</Text>
-        <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
-        <Text style = {{fontSize:22, bottom: 100}}>-$300.00</Text>
-        <TextInput placeholder="Pending Loans" style={styles.text2}/>
-        <TextInput placeholder="  Search Bar" style ={styles.text3}/>
+      <Text style = {{fontSize:22, bottom: 110}}>Lender's Page</Text>
+      <Text style = {{fontSize:22, bottom: 100}}>$6000.00</Text>
+      <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
+      <Text style = {{fontSize:22, bottom: 100}}>-$300.00</Text>
+      <TextInput placeholder="Pending Loans" style={styles.text2}/>
+      <TextInput placeholder="  Search Bar" style ={styles.text3}/>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
+      <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User80" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
+      <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User80" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
+      <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User56" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
+      <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User56" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
 
-        <Button
-          title="Switch To Borrower"
-          onPress={() => this.props.navigation.navigate('Borrower')}
-        />
+      <Button
+      title="Switch To Borrower"
+      onPress={() => this.props.navigation.navigate('Borrower')}
+      />
       </View>
 
     );
@@ -143,8 +181,8 @@ class Borrowing extends React.Component {
       <Text style = {{fontSize:16, bottom: 40, color: 'green'}}>Borrow as Anonymous: {this.state.switchValue ? 'on' : 'off'}</Text>
       <Switch style = {{ bottom: 40}} value= {this.state.switchValue} onValueChange={(switchValue) => this.setState({switchValue})} />
       <View style = {{bottom: 30}}>
-        <Button title="REQUEST" color='red' onPress={this.handlepress}/>
-        <Button title="PAY OFF" color='red' onPress={this.handlepress}/>
+      <Button title="REQUEST" color='red' onPress={this.handlepress}/>
+      <Button title="PAY OFF" color='red' onPress={this.handlepress}/>
       </View>
 
       <Button title="Switch To Lender" onPress={() => this.props.navigation.navigate('Lender')}
@@ -162,17 +200,17 @@ class ProfB extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontSize:22, bottom: 130}}>Profile View: </Text>
-        <Text style = {{fontSize:15, bottom: 130, color:'green'}}>Borrower</Text>
-        <Text style = {{fontSize:15, bottom: 120, color:'green'}}><Image style = {{width: 180, height: 140}} source= {require('./img/profile.jpg')}/></Text>
-        <Text style = {{fontSize:22, bottom: 120}}>Nadine Rodriguez</Text>
-        <Text style = {{fontSize:15, bottom: 120}}>Nadine16</Text>
-        <Image style = {{width: 100, height: 100, bottom: 120}} source= {require('./img/ratings.png')}/>
-        <Text style={styles.textBox2}> I need to buy a new laptop...</Text>
-        <TextInput placeholder="$500.00" style={styles.textBox3}/>
-        <View style = {{bottom:60}}>
-          <Button title="LEND" color='red' onPress={this.handlepress}/>
-        </View>
+      <Text style = {{fontSize:22, bottom: 130}}>Profile View: </Text>
+      <Text style = {{fontSize:15, bottom: 130, color:'green'}}>Borrower</Text>
+      <Text style = {{fontSize:15, bottom: 120, color:'green'}}><Image style = {{width: 180, height: 140}} source= {require('./img/profile.jpg')}/></Text>
+      <Text style = {{fontSize:22, bottom: 120}}>Nadine Rodriguez</Text>
+      <Text style = {{fontSize:15, bottom: 120}}>Nadine16</Text>
+      <Image style = {{width: 100, height: 100, bottom: 120}} source= {require('./img/ratings.png')}/>
+      <Text style={styles.textBox2}> I need to buy a new laptop...</Text>
+      <TextInput placeholder="$500.00" style={styles.textBox3}/>
+      <View style = {{bottom:60}}>
+      <Button title="LEND" color='red' onPress={this.handlepress}/>
+      </View>
       </View>
 
     );
@@ -184,12 +222,12 @@ class SignUp1 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontWeight: 'bold', bottom: 140, fontSize: 20}}>Create an Account</Text>
-        <TextInput placeholder="Email Address" style={styles.textBox}/>
-        <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Sign2')}
-        />
+      <Text style = {{fontWeight: 'bold', bottom: 140, fontSize: 20}}>Create an Account</Text>
+      <TextInput placeholder="Email Address" style={styles.textBox}/>
+      <Button
+      title="Next"
+      onPress={() => this.props.navigation.navigate('Sign2')}
+      />
       </View>
     );
   }
@@ -211,16 +249,16 @@ class SignUp2 extends React.Component {
       <Text style = {{fontWeight: 'bold', bottom: 140, fontSize: 20}}>Create a Username and Password</Text>
       <TextInput placeholder=" Username" style={styles.textBox}/>
       <View style={styles.textBoxContainer}>
-        <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
-        <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
-          <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
-        </TouchableOpacity>
+      <TextInput underlineColorAndroid="transparent" secureTextEntry={this.state.hidePassword} style={styles.textBox} placeholder=" Password" />
+      <TouchableOpacity activeOpacity={0.8} style={styles.touachableButton} onPress={this.setPasswordVisibility}>
+      <Image source={(this.state.hidePassword) ? require('./img/hidePassword.png') : require('./img/showPassword.png')} style={styles.buttonImage} />
+      </TouchableOpacity>
       </View>
 
-        <Button
-          title="Next"
-          onPress={() => this.props.navigation.navigate('Sign3')}
-        />
+      <Button
+      title="Next"
+      onPress={() => this.props.navigation.navigate('Sign3')}
+      />
 
       </View>
     );
@@ -230,15 +268,15 @@ class SignUp3 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontWeight: 'bold', bottom: 25, fontSize: 20}}>Set Up Your Account</Text>
-        <TextInput placeholder="First Name" style={styles.textBox}/>
-        <TextInput placeholder="Last Name" style={styles.textBox}/>
-        <View style = {{padding: 30}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
-        <Image style = {{width: 220, height: 180, padding: 50}} source= {require('./img/placeholder.jpg')}/>
-        <Button
-          title="Submit"
-          onPress={() => this.props.navigation.navigate('Sign4')}
-        /></View>
+      <Text style = {{fontWeight: 'bold', bottom: 25, fontSize: 20}}>Set Up Your Account</Text>
+      <TextInput placeholder="First Name" style={styles.textBox}/>
+      <TextInput placeholder="Last Name" style={styles.textBox}/>
+      <View style = {{padding: 30}}><Text style = {{padding: 20}}>Upload Valid Photo ID:</Text>
+      <Image style = {{width: 220, height: 180, padding: 50}} source= {require('./img/placeholder.jpg')}/>
+      <Button
+      title="Submit"
+      onPress={() => this.props.navigation.navigate('Sign4')}
+      /></View>
       </View>
 
     );
@@ -256,8 +294,8 @@ class SignUp4 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontWeight: 'bold', bottom: 180, fontSize: 30}}>Verification Status</Text>
-        {this.state.loaded ? <Text style = {{fontSize:16, alignItems: 'center', justifyContent: 'center'}}>WELCOME! You can now login to your account</Text> : <Text style = {{fontSize:20, color: 'green'}}>VERIFYING...</Text>}
+      <Text style = {{fontWeight: 'bold', bottom: 180, fontSize: 30}}>Verification Status</Text>
+      {this.state.loaded ? <Text style = {{fontSize:16, alignItems: 'center', justifyContent: 'center'}}>WELCOME! You can now login to your account</Text> : <Text style = {{fontSize:20, color: 'green'}}>VERIFYING...</Text>}
       </View>
 
     );
@@ -388,7 +426,7 @@ const RootStack = createStackNavigator(
 // Number Keyboard
 const DismissKeyboard = ( {children} ) => (
   <TouchableWithoutFeedback onPress = {() => Keyboard.dismiss()}>
-    {children}
+  {children}
   </TouchableWithoutFeedback>
 );
 
@@ -459,66 +497,79 @@ const styles = StyleSheet.create({
   // Password StyleSheet
   container: {
     backgroundColor:'#E8FEEA',
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
 
-    },
-    headerText: {
-      fontSize: 25,
-      textAlign: "center",
-      margin: 10,
-      color: 'black',
-      fontWeight: "bold"
-    },
-    textBoxContainer: {
-      position: 'relative',
-      alignSelf: 'stretch',
-      justifyContent: 'center'
-    },
-    textBox: {
-      fontSize: 16,
-      alignSelf: 'stretch',
-      height: 45,
-      paddingRight: 45,
-      paddingLeft: 8,
-      borderWidth: 1,
-      paddingVertical: 0,
-      borderColor: 'green',
-      borderRadius: 5,
-    },
-    textBox2: {
-      fontSize: 16,
-      width: '70%',
-      height: 20,
-      paddingRight: 20,
-      borderWidth: 1,
-      borderColor: 'green',
-      borderRadius: 5,
-      bottom: 120
-    },
-    textBox3: {
-      fontSize: 16,
-      width: '30%',
-      height: 20,
-      paddingRight: 20,
-      borderWidth: 1,
-      borderColor: 'green',
-      borderRadius: 5,
-      bottom: 100
-    },
-    touachableButton: {
-      position: 'absolute',
-      right: 3,
-      height: 40,
-      width: 35,
-      padding: 2
-    },
-    buttonImage: {
-      resizeMode: 'contain',
-      height: '100%',
-      width: '100%',
-    },
+  },
+  headerText: {
+    fontSize: 25,
+    textAlign: "center",
+    margin: 10,
+    color: 'black',
+    fontWeight: "bold"
+  },
+  textBoxContainer: {
+    position: 'relative',
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  textBox: {
+    fontSize: 16,
+    alignSelf: 'stretch',
+    height: 45,
+    paddingRight: 45,
+    paddingLeft: 8,
+    borderWidth: 1,
+    paddingVertical: 0,
+    borderColor: 'green',
+    borderRadius: 5,
+  },
+  textBox2: {
+    fontSize: 16,
+    width: '70%',
+    height: 20,
+    paddingRight: 20,
+    borderWidth: 1,
+    borderColor: 'green',
+    borderRadius: 5,
+    bottom: 120
+  },
+  textBox3: {
+    fontSize: 16,
+    width: '30%',
+    height: 20,
+    paddingRight: 20,
+    borderWidth: 1,
+    borderColor: 'green',
+    borderRadius: 5,
+    bottom: 100
+  },
+  touachableButton: {
+    position: 'absolute',
+    right: 3,
+    height: 40,
+    width: 35,
+    padding: 2
+  },
+  buttonImage: {
+    resizeMode: 'contain',
+    height: '100%',
+    width: '100%',
+  },
+  // Used for Navigation Dropdown
+  menuContent: {
+    color: "#000",
+    fontWeight: "bold",
+    fontSize: 16
+  },
+  headerText2: {
+    fontSize: 20,
+    textAlign: "right",
+    margin: 10,
+    color: 'green',
+    fontWeight: "bold"
+  },
 });
 
 

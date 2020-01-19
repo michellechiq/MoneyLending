@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity} from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -84,13 +84,13 @@ class Login3 extends React.Component {
         <TextInput placeholder="Name of Bank" style={styles.textBox}/>
         <TextInput placeholder="Account Number" style={styles.textBox}/>
         <TextInput placeholder="9 Digit Routing Number" style={styles.textBox}/>
-        <View style = {{padding: 30, fontSize: 20}}><Text style = {{top:30}}>Type of Account</Text>
-        <Text style = {styles.textRight}>Checking</Text>
-        <Text style = {styles.textLeft}>Saving</Text>
-        <Button
-          title="Submit"
-          onPress={() => this.props.navigation.navigate('Lender')}
-        /></View>
+        <TextInput placeholder="Type of Account: Checkings/Savings" style={styles.textBox}/>
+        <View style = {{padding:20}}>
+          <Button
+            title="Submit"
+            onPress={() => this.props.navigation.navigate('Lender')}
+          />
+        </View>
       </View>
 
     );
@@ -100,20 +100,20 @@ class Lending extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontSize:22, bottom: 155}}>Lender's Page</Text>
-        <Text style = {{fontSize:22, bottom: 150}}>$6000.00</Text>
+        <Text style = {{fontSize:22, bottom: 110}}>Lender's Page</Text>
+        <Text style = {{fontSize:22, bottom: 100}}>$6000.00</Text>
         <TextInput placeholder="Remainder Credit Line" style ={styles.text2}/>
-        <Text style = {{fontSize:22, bottom: 150}}>-$300.00</Text>
+        <Text style = {{fontSize:22, bottom: 100}}>-$300.00</Text>
         <TextInput placeholder="Pending Loans" style={styles.text2}/>
         <TextInput placeholder="  Search Bar" style ={styles.text3}/>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Michelle123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 100, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Joe6" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
 
         <Button
           title="Switch To Borrower"
@@ -125,17 +125,22 @@ class Lending extends React.Component {
   }
 }
 class Borrowing extends React.Component {
+  state = {
+    slideValue:0,
+    switchValue:false
+  }
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
-        <Text style = {{fontSize:22, bottom: 200}}>Borrower's Page</Text>
-        <TextInput placeholder="Name of Bank" style={styles.textInput}/>
-        <TextInput placeholder="Account Number" style={styles.textInput}/>
-        <TextInput placeholder="9 Digit Routing Number" style={styles.textInput}/>
-        <Button
-          title="Switch To Lender"
-          onPress={() => this.props.navigation.navigate('Lender')}
-        />
+      <Text style = {{fontSize:22, bottom: 200}}>Borrower's Page</Text>
+      <TextInput placeholder=" -$200.00" style={styles.text4}/>
+      <Text></Text>
+      <TextInput placeholder=" $0.00" style={styles.text4}/>
+      <Text style = {{fontSize:16}}>Borrow as Anonymous: {this.state.switchValue ? 'on' : 'off'}</Text>
+      <Switch value= {this.state.switchValue} onValueChange={(switchValue) => this.setState({switchValue})} />
+      <Button
+        title="Switch To Lender" onPress={() => this.props.navigation.navigate('Lender')}
+      />
       </View>
 
     );
@@ -377,12 +382,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     padding:15
   },
+  // text2: used on lender's page
   text2: {
     width: '40%',
     borderTopColor: 'green',
     borderTopWidth: 1,
-    bottom:150
+    bottom:100
   },
+  // text3: used for the search bar on lender's
   text3: {
     width: '65%',
     borderTopColor: 'green',
@@ -393,24 +400,22 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderLeftWidth: 1,
     borderRightWidth: 1,
-    bottom:130
+    height: 35,
+    bottom:85
   },
-  textRight: {
-    width: '15%',
-    fontSize: 15,
-    right: 100,
-    top:45,
-    padding: 10,
-    margin: 20,
-    textAlign: 'left'
-  },
-  textLeft: {
-    width: '15%',
-    fontSize: 15,
-    left: 100,
-    bottom:60,
-    margin: 20,
-    textAlign: 'right'
+  // text4: used on borrower's page
+  text4: {
+    width: '40%',
+    borderTopColor: 'green',
+    borderBottomColor: 'green',
+    borderLeftColor: 'green',
+    borderRightColor: 'green',
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    height: 35,
+    bottom:160
   },
   // Password StyleSheet
   container: {

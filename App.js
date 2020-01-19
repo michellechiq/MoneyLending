@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import MainService from './screens/mainservice';
 
 class Homepage extends React.Component {
   render() {
@@ -142,17 +143,9 @@ class Borrowing extends React.Component {
       <Text style = {{fontSize:16, bottom: 40, color: 'green'}}>Borrow as Anonymous: {this.state.switchValue ? 'on' : 'off'}</Text>
       <Switch style = {{ bottom: 40}} value= {this.state.switchValue} onValueChange={(switchValue) => this.setState({switchValue})} />
       <View style = {{bottom: 30}}>
-      <Button
-        title="Request"
-        color='red'
-        onPress={this.handlepress}
-        />
-        <Button
-          title="Pay Off"
-          color='red'
-          onPress={this.handlepress}
-          />
-        </View>
+        <Button title="REQUEST" color='red' onPress={this.handlepress}/>
+        <Button title="PAY OFF" color='red' onPress={this.handlepress}/>
+      </View>
 
       <Button title="Switch To Lender" onPress={() => this.props.navigation.navigate('Lender')}
       />
@@ -177,15 +170,14 @@ class ProfB extends React.Component {
         <Image style = {{width: 100, height: 100, bottom: 120}} source= {require('./img/ratings.png')}/>
         <Text style={styles.textBox2}> I need to buy a new laptop...</Text>
         <TextInput placeholder="$500.00" style={styles.textBox3}/>
-        <Button
-          title="LEND"
-          onPress={() => this.props.navigation.navigate('')}
-        />
-
-
+        <View style = {{bottom:60}}>
+          <Button title="LEND" color='red' onPress={this.handlepress}/>
+        </View>
       </View>
 
     );
+  }
+  handlepress = () => {
   }
 }
 class SignUp1 extends React.Component {
@@ -254,11 +246,18 @@ class SignUp3 extends React.Component {
 }
 
 class SignUp4 extends React.Component {
+  state = {
+    loaded:false
+  }
+  constructor() {
+    super();
+    MainService.load(v => this.setState({loaded: true}));
+  }
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8FEEA' }}>
         <Text style = {{fontWeight: 'bold', bottom: 180, fontSize: 30}}>Verification Status</Text>
-        <Text style = {{fontWeight: 'bold', fontSize: 20}}>STATUS BAR GOES HERE</Text>
+        {this.state.loaded ? <Text style = {{fontSize:16, alignItems: 'center', justifyContent: 'center'}}>WELCOME! You can now login to your account</Text> : <Text style = {{fontSize:20, color: 'green'}}>VERIFYING...</Text>}
       </View>
 
     );

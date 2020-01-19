@@ -110,11 +110,11 @@ class Lending extends React.Component {
 
         <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $4010</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Michelle123" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User80" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $2030</Text></View>
 
         <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Nadine16" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $1160</Text></View>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="Joe6" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between', bottom: 60, padding: 10}}><Button style= {{fontSize:20, justifyContent: 'space-between'}} title ="User56" onPress={() => this.props.navigation.navigate('ProfileB')}/><Text style= {{fontSize:20, justifyContent: 'space-between', padding: 8}}> $3620</Text></View>
 
         <Button
           title="Switch To Borrower"
@@ -489,7 +489,7 @@ const styles = StyleSheet.create({
     },
     textBox2: {
       fontSize: 16,
-      width: '60%',
+      width: '70%',
       height: 20,
       paddingRight: 20,
       borderWidth: 1,
@@ -499,7 +499,7 @@ const styles = StyleSheet.create({
     },
     textBox3: {
       fontSize: 16,
-      width: '20%',
+      width: '30%',
       height: 20,
       paddingRight: 20,
       borderWidth: 1,

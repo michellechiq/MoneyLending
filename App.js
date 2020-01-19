@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker} from 'react-native';
+import { Button, View, Text, TextInput, StyleSheet, Image, AppRegistry, TouchableOpacity, Switch, Picker, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -131,19 +131,38 @@ class Borrowing extends React.Component {
   }
   render() {
     return (
+      <DismissKeyboard>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#E8FEEA' }}>
-      <Text style = {{fontSize:22, bottom: 200}}>Borrower's Page</Text>
+      <Text style = {{fontSize:22, bottom: 120}}>Borrower's Page</Text>
       <TextInput placeholder=" -$200.00" style={styles.text4}/>
       <Text></Text>
-      <TextInput placeholder=" $0.00" style={styles.text4}/>
-      <Text style = {{fontSize:16}}>Borrow as Anonymous: {this.state.switchValue ? 'on' : 'off'}</Text>
-      <Switch value= {this.state.switchValue} onValueChange={(switchValue) => this.setState({switchValue})} />
+      <TextInput placeholder=" $0.00" underlineColorAndroid='transparent' style={styles.text4} keyboardType={'numeric'}/>
+
+      <TextInput placeholder=" I need to buy new books... " style={styles.text5} multiline={true}/>
+      <Text style = {{fontSize:16, bottom: 40, color: 'green'}}>Borrow as Anonymous: {this.state.switchValue ? 'on' : 'off'}</Text>
+      <Switch style = {{ bottom: 40}} value= {this.state.switchValue} onValueChange={(switchValue) => this.setState({switchValue})} />
+      <View style = {{bottom: 30}}>
       <Button
-        title="Switch To Lender" onPress={() => this.props.navigation.navigate('Lender')}
+        title="Request"
+        color='red'
+        onPress={this.handlepress}
+        />
+        <Button
+          title="Pay Off"
+          color='red'
+          onPress={this.handlepress}
+          />
+        </View>
+
+      <Button title="Switch To Lender" onPress={() => this.props.navigation.navigate('Lender')}
       />
       </View>
+      </DismissKeyboard>
+
 
     );
+  }
+  handlepress = () => {
   }
 }
 class ProfB extends React.Component {
@@ -367,6 +386,13 @@ const RootStack = createStackNavigator(
   }
 );
 
+// Number Keyboard
+const DismissKeyboard = ( {children} ) => (
+  <TouchableWithoutFeedback onPress = {() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
+
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
@@ -415,7 +441,21 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderRightWidth: 1,
     height: 35,
-    bottom:160
+    bottom:80
+  },
+  // text5: used on borrower's page
+  text5: {
+    width: '65%',
+    borderTopColor: 'green',
+    borderBottomColor: 'green',
+    borderLeftColor: 'green',
+    borderRightColor: 'green',
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    height: 70,
+    bottom:60
   },
   // Password StyleSheet
   container: {
